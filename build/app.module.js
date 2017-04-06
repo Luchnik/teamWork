@@ -12,8 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var material_1 = require('@angular/material');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var projects_component_1 = require('./projects/projects.component');
+var routes = [
+    { path: '', redirectTo: '/projects', pathMatch: 'full' },
+    { path: 'projects', component: projects_component_1.ProjectsComponent }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,8 +26,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 material_1.MaterialModule.forRoot(),
-                router_1.RouterModule.forRoot([])
+                router_1.RouterModule.forRoot(routes)
             ],
             declarations: [
                 app_component_1.AppComponent,
