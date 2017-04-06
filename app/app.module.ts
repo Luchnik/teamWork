@@ -4,6 +4,7 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot([])
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    ProjectsComponent
   ],
   bootstrap: [ AppComponent ]
 })

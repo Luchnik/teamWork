@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var material_1 = require('@angular/material');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var projects_component_1 = require('./projects/projects.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,8 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([])
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                projects_component_1.ProjectsComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
