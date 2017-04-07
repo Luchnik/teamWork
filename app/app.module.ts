@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes = [
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes = [
   ],
   declarations: [
     AppComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    SummaryComponent
   ],
   bootstrap: [ AppComponent ]
 })

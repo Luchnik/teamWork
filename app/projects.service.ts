@@ -14,6 +14,10 @@ export class ProjectsService {
     return res.json();
   }
 
+  getUsers(): Observable<any[]> {
+    return this.http.get('./api/users').map(this.extractData);
+  }
+
   getProjects(): Observable<Project[]> {
     return this.http.get('./api/projects').map(this.extractData);
   }

@@ -17,6 +17,9 @@ var ProjectsService = (function () {
     ProjectsService.prototype.extractData = function (res) {
         return res.json();
     };
+    ProjectsService.prototype.getUsers = function () {
+        return this.http.get('./api/users').map(this.extractData);
+    };
     ProjectsService.prototype.getProjects = function () {
         return this.http.get('./api/projects').map(this.extractData);
     };

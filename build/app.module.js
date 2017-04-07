@@ -15,6 +15,7 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var projects_component_1 = require('./projects/projects.component');
+var summary_component_1 = require('./summary/summary.component');
 var routes = [
     { path: '', redirectTo: '/projects', pathMatch: 'full' },
     { path: 'projects', component: projects_component_1.ProjectsComponent }
@@ -32,7 +33,8 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                projects_component_1.ProjectsComponent
+                projects_component_1.ProjectsComponent,
+                summary_component_1.SummaryComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
