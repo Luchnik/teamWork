@@ -1,15 +1,8 @@
-<md-card>
-  <form #f='ngForm' (submit)='login(f.value)'>
-    <md-card-title> Login </md-card-title>
+<form #f='ngForm' (submit)='login(f.value)'>
+  <h2> Увійти в систему </h2>
 
-    <md-card-content>
-    <p> <input type='text' name='username' placeholder='username' ngModel> </p>
+  <p> <input type='text' name='username' placeholder="Ім'я користувача" ngModel> </p>
+  <p> <input type='password' name='password' placeholder="Пароль" ngModel> </p>
 
-    <p> <input type='password' name='password' placeholder='password' ngModel> </p>
-    </md-card-content>
-
-    <md-card-actions>
-        <button color='primary' type='submit'> Log In </button>
-    </md-card-actions>
-  </form>
-</md-card>
+  <button color='primary' type='submit'> Увійти </button>
+</form>

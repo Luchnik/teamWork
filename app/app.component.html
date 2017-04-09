@@ -2,7 +2,7 @@
   <span class="md-tool">TeamWork</span>
   <span>
     <a routerLink="/home">Головна</a>
-    <a routerLink="/projects">Всі проекти</a>
+    <a *ngIf='user' routerLink="/projects">Всі проекти</a>
   </span>
 
   <img *ngIf='user' [src]="user.avatar" height="40">
