@@ -15,7 +15,7 @@ export class LoginComponent {
   login({ username, password }) {
     this.auth.login(username, password).subscribe(loggedIn => {
       if (loggedIn) {
-          this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home');
       }
     });
   }
