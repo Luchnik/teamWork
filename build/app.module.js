@@ -13,11 +13,14 @@ var platform_browser_1 = require('@angular/platform-browser');
 var material_1 = require('@angular/material');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
+var auth_service_1 = require('./auth.service');
 var app_component_1 = require('./app.component');
+var home_component_1 = require('./home/home.component');
 var projects_component_1 = require('./projects/projects.component');
 var summary_component_1 = require('./summary/summary.component');
 var routes = [
-    { path: '', redirectTo: '/projects', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: home_component_1.HomeComponent },
     { path: 'projects', component: projects_component_1.ProjectsComponent }
 ];
 var AppModule = (function () {
@@ -34,8 +37,10 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 projects_component_1.ProjectsComponent,
-                summary_component_1.SummaryComponent
+                summary_component_1.SummaryComponent,
+                home_component_1.HomeComponent
             ],
+            providers: [auth_service_1.AuthService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

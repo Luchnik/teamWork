@@ -1,0 +1,9 @@
+<h2>Ласкаво просимо!</h2>
+
+<p *ngIf="loggedIn">
+  <a [routerLink]='["/projects"]'> Переглянути мої проекти </a>
+</p>
+
+<p *ngIf="!loggedIn">
+  <a [routerLink]='["/login"]'> Логін </a>
+</p>
