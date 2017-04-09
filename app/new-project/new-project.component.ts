@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { AuthService } from '../auth.service';
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'new-project',
-  templateUrl: 'app/new-project/new-project.component.html'
+  templateUrl: 'app/new-project/new-project.component.html',
+  providers: [ ProjectsService ]
 })
 export class NewProjectComponent implements OnInit {
   form: FormGroup;
   name: AbstractControl;
   submitted: boolean = false;
+  users: any[];
 
-  constructor(private fb: FormBuilder){}
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private service: ProjectsService
+  ){}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -18,10 +27,19 @@ export class NewProjectComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ])],
-      description: ''
+      description: '',
+      users: new FormControl([])
     });
 
     this.name = this.form.controls['name'];
+
+    this.service.getUsers().subscribe(users => {
+      this.auth.currentUser.subscribe(currentUser => {
+        let currUsername = currentUser.username;
+        this.form.controls['users'].setValue([currUsername]);
+        this.users = users.filter(u => u.username !== currUsername);
+      });
+    });
   }
 
   handler() {
@@ -30,7 +48,30 @@ export class NewProjectComponent implements OnInit {
     } else {
       this.submitted = true;
     }
-    
+  }
+
+  getIndex(username: string): number {
+    return this.form.controls['users'].value.indexOf(username);
+  }
+
+  isSelected(username: string): boolean {
+    return this.getIndex(username) > -1;
+  }
+
+  onSelected(evt, username) {
+    let users = this.form.controls['users'];
+    let newUsers = users.value;
+    let index = this.getIndex(username);
+
+    if (evt.checked && index === -1) {
+        newUsers = users.value.concat([username]);
+    }
+
+    if (!evt.checked && index > -1) {
+        newUsers = users.value.slice(0, index).concat(users.value.slice(index + 1));
+    }
+
+    users.setValue(newUsers);
   }
 
 }

@@ -7,6 +7,22 @@
       <textarea placeholder="Опис проекту" [formControl]='form.controls["description"]'>
       </textarea>
     </p>
+
+    <div>
+      <label> Користувачі </label>
+      <ul>
+        <li *ngFor='let user of users'>
+          <label>
+            <md-checkbox
+              [checked]='isSelected(user.username)'
+              (change)='onSelected($event, user.username)'>
+              {{user.username}}
+            </md-checkbox>
+          </label>
+        </li>
+      </ul>
+    </div>
+
     <button type="submit">Зберегти</button>
 
     <p *ngIf='(submitted || name.dirty) && name.hasError("required")'>

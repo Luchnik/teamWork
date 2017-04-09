@@ -10,20 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var auth_service_1 = require('../auth.service');
+var projects_service_1 = require('../projects.service');
 var NewProjectComponent = (function () {
-    function NewProjectComponent(fb) {
+    function NewProjectComponent(fb, auth, service) {
         this.fb = fb;
+        this.auth = auth;
+        this.service = service;
         this.submitted = false;
     }
     NewProjectComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.form = this.fb.group({
             name: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
                     forms_1.Validators.minLength(3)
                 ])],
-            description: ''
+            description: '',
+            users: new forms_1.FormControl([])
         });
         this.name = this.form.controls['name'];
+        this.service.getUsers().subscribe(function (users) {
+            _this.auth.currentUser.subscribe(function (currentUser) {
+                var currUsername = currentUser.username;
+                _this.form.controls['users'].setValue([currUsername]);
+                _this.users = users.filter(function (u) { return u.username !== currUsername; });
+            });
+        });
     };
     NewProjectComponent.prototype.handler = function () {
         if (this.form.valid) {
@@ -33,12 +46,31 @@ var NewProjectComponent = (function () {
             this.submitted = true;
         }
     };
+    NewProjectComponent.prototype.getIndex = function (username) {
+        return this.form.controls['users'].value.indexOf(username);
+    };
+    NewProjectComponent.prototype.isSelected = function (username) {
+        return this.getIndex(username) > -1;
+    };
+    NewProjectComponent.prototype.onSelected = function (evt, username) {
+        var users = this.form.controls['users'];
+        var newUsers = users.value;
+        var index = this.getIndex(username);
+        if (evt.checked && index === -1) {
+            newUsers = users.value.concat([username]);
+        }
+        if (!evt.checked && index > -1) {
+            newUsers = users.value.slice(0, index).concat(users.value.slice(index + 1));
+        }
+        users.setValue(newUsers);
+    };
     NewProjectComponent = __decorate([
         core_1.Component({
             selector: 'new-project',
-            templateUrl: 'app/new-project/new-project.component.html'
+            templateUrl: 'app/new-project/new-project.component.html',
+            providers: [projects_service_1.ProjectsService]
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, auth_service_1.AuthService, projects_service_1.ProjectsService])
     ], NewProjectComponent);
     return NewProjectComponent;
 }());
