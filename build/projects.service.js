@@ -23,6 +23,9 @@ var ProjectsService = (function () {
     ProjectsService.prototype.getProjects = function () {
         return this.http.get('./api/projects').map(this.extractData);
     };
+    ProjectsService.prototype.createProject = function (attrs) {
+        return this.http.post('./api/projects', attrs).map(this.extractData);
+    };
     ProjectsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

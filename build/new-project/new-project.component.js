@@ -10,13 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var auth_service_1 = require('../auth.service');
 var projects_service_1 = require('../projects.service');
 var NewProjectComponent = (function () {
-    function NewProjectComponent(fb, auth, service) {
+    function NewProjectComponent(fb, auth, service, router) {
         this.fb = fb;
         this.auth = auth;
         this.service = service;
+        this.router = router;
         this.submitted = false;
     }
     NewProjectComponent.prototype.ngOnInit = function () {
@@ -39,8 +41,11 @@ var NewProjectComponent = (function () {
         });
     };
     NewProjectComponent.prototype.handler = function () {
+        var _this = this;
         if (this.form.valid) {
-            console.log(this.form.value);
+            this.service.createProject(this.form.value).subscribe(function () {
+                _this.router.navigateByUrl('/projects');
+            });
         }
         else {
             this.submitted = true;
@@ -70,7 +75,7 @@ var NewProjectComponent = (function () {
             templateUrl: 'app/new-project/new-project.component.html',
             providers: [projects_service_1.ProjectsService]
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, auth_service_1.AuthService, projects_service_1.ProjectsService])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, auth_service_1.AuthService, projects_service_1.ProjectsService, router_1.Router])
     ], NewProjectComponent);
     return NewProjectComponent;
 }());

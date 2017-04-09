@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { ProjectsService } from '../projects.service';
@@ -18,7 +19,8 @@ export class NewProjectComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private service: ProjectsService
+    private service: ProjectsService,
+    private router: Router
   ){}
 
   ngOnInit() {
@@ -44,7 +46,9 @@ export class NewProjectComponent implements OnInit {
 
   handler() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.service.createProject(this.form.value).subscribe(() => {
+        this.router.navigateByUrl('/projects');
+      });
     } else {
       this.submitted = true;
     }

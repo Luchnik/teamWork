@@ -22,4 +22,8 @@ export class ProjectsService {
     return this.http.get('./api/projects').map(this.extractData);
   }
 
+  createProject(attrs): Observable<Project> {
+    return this.http.post('./api/projects', attrs).map(this.extractData);
+  }
+
 }
