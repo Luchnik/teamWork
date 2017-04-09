@@ -12,12 +12,14 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SummaryComponent } from './summary/summary.component';
+import { NewProjectComponent } from './new-project/new-project.component';
 
 const routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'projects', component: ProjectsComponent, canActivate: [ LoggedInGuard ] }
+  { path: 'projects', component: ProjectsComponent, canActivate: [ LoggedInGuard ] },
+  { path: 'projects/new', component: NewProjectComponent, canActivate: [ LoggedInGuard ] }
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const routes = [
     ProjectsComponent,
     SummaryComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NewProjectComponent
   ],
   providers: [ AuthService, LoggedInGuard ],
   bootstrap: [ AppComponent ]

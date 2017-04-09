@@ -1,0 +1,20 @@
+<div>
+  <h2>Створити новий проект</h2>
+
+  <form [formGroup]='form' (ngSubmit)='handler()'>
+    <p><input type="text" placeholder="Назва проекту" [formControl]='form.controls["name"]'></p>
+    <p>
+      <textarea placeholder="Опис проекту" [formControl]='form.controls["description"]'>
+      </textarea>
+    </p>
+    <button type="submit">Зберегти</button>
+
+    <p *ngIf='(submitted || name.dirty) && name.hasError("required")'>
+      Введіть назву проекту!
+    </p>
+
+    <p *ngIf='(submitted || name.dirty) && name.hasError("minlength")'>
+      Назва має бути довша ніж 2 символи!
+    </p>
+  </form>
+</div>
