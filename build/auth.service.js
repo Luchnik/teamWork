@@ -19,7 +19,7 @@ var AuthService = (function () {
     }
     AuthService.prototype.login = function (username, password) {
         var _this = this;
-        this.http.post('/api/login', { username: username, password: password })
+        return this.http.post('/api/login', { username: username, password: password })
             .map(function (res) { return res.json(); })
             .map(function (user) {
             if (user) {
@@ -29,7 +29,7 @@ var AuthService = (function () {
             return !!user;
         });
     };
-    AuthService.prototype.logOut = function () {
+    AuthService.prototype.logout = function () {
         localStorage.removeItem('user');
         this.currentUser.next(false);
     };

@@ -1,0 +1,28 @@
+<!--<form #f="ngForm" (submit)="login(f.value)" >
+  <p>Логін</p>
+  <div>
+    <p><input type="text" name="username" placeholder="Ім'я користувача" ngModel /></p>
+    <p><input type="password" name="password" placeholder="Пароль" ngModel /></p>
+  </div>
+
+  <div>
+    <button type="submit">Логін</button>
+  </div>
+</form>-->
+
+<md-card>
+    <form #f='ngForm' (submit)='login(f.value)'>
+
+        <md-card-title> Login </md-card-title>
+
+        <md-card-content>
+        <p> <input type='text' name='username' placeholder='username' ngModel> </p>
+
+        <p> <input type='password' name='password' placeholder='password' ngModel> </p>
+        </md-card-content>
+
+        <md-card-actions>
+            <button color='primary' type='submit'> Log In </button>
+        </md-card-actions>
+    </form>
+</md-card>

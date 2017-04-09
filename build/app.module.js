@@ -13,14 +13,17 @@ var platform_browser_1 = require('@angular/platform-browser');
 var material_1 = require('@angular/material');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
+var forms_1 = require('@angular/forms');
 var auth_service_1 = require('./auth.service');
 var app_component_1 = require('./app.component');
+var login_component_1 = require('./login/login.component');
 var home_component_1 = require('./home/home.component');
 var projects_component_1 = require('./projects/projects.component');
 var summary_component_1 = require('./summary/summary.component');
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'login', component: login_component_1.LoginComponent },
     { path: 'projects', component: projects_component_1.ProjectsComponent }
 ];
 var AppModule = (function () {
@@ -31,6 +34,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 material_1.MaterialModule.forRoot(),
                 router_1.RouterModule.forRoot(routes)
             ],
@@ -38,7 +43,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 projects_component_1.ProjectsComponent,
                 summary_component_1.SummaryComponent,
-                home_component_1.HomeComponent
+                home_component_1.HomeComponent,
+                login_component_1.LoginComponent
             ],
             providers: [auth_service_1.AuthService],
             bootstrap: [app_component_1.AppComponent]
