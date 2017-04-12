@@ -15,19 +15,24 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
 var auth_service_1 = require('./auth.service');
+var emitter_service_1 = require('./emitter.service');
 var loggedIn_guard_1 = require('./loggedIn.guard');
 var app_component_1 = require('./app.component');
 var login_component_1 = require('./login/login.component');
 var home_component_1 = require('./home/home.component');
+var project_component_1 = require('./project/project.component');
 var projects_component_1 = require('./projects/projects.component');
 var summary_component_1 = require('./summary/summary.component');
 var new_project_component_1 = require('./new-project/new-project.component');
+var conversation_component_1 = require('./conversation/conversation.component');
+var newConversation_component_1 = require('./newconversation/newConversation.component');
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'projects', component: projects_component_1.ProjectsComponent, canActivate: [loggedIn_guard_1.LoggedInGuard] },
-    { path: 'projects/new', component: new_project_component_1.NewProjectComponent, canActivate: [loggedIn_guard_1.LoggedInGuard] }
+    { path: 'projects/new', component: new_project_component_1.NewProjectComponent, canActivate: [loggedIn_guard_1.LoggedInGuard] },
+    { path: 'projects/:id', component: project_component_1.ProjectComponent, children: project_component_1.projectChildRoutes, canActivate: [loggedIn_guard_1.LoggedInGuard] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -48,9 +53,12 @@ var AppModule = (function () {
                 summary_component_1.SummaryComponent,
                 home_component_1.HomeComponent,
                 login_component_1.LoginComponent,
-                new_project_component_1.NewProjectComponent
+                new_project_component_1.NewProjectComponent,
+                project_component_1.ProjectComponent,
+                conversation_component_1.ConversationComponent,
+                newConversation_component_1.NewConversationComponent
             ],
-            providers: [auth_service_1.AuthService, loggedIn_guard_1.LoggedInGuard],
+            providers: [auth_service_1.AuthService, loggedIn_guard_1.LoggedInGuard, emitter_service_1.EmitterService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

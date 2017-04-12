@@ -1,0 +1,18 @@
+<md-card class='conv-full'>
+  <md-card-title> Нове обговорення </md-card-title>
+  <md-card-content>
+    <p>
+      <input class='full-width' type='text' placeholder='Name' [(ngModel)]='name'>
+    </p>
+
+    <p>
+      <button md-raised-button color='primary' (click)='handleClick()'>
+          Розпочати розмову
+      </button>
+
+      <button md-raised-button [routerLink]='["../../"]' >
+          Відміна
+      </button>
+    </p>
+  </md-card-content>
+</md-card>

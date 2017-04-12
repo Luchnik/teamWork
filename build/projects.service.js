@@ -20,11 +20,23 @@ var ProjectsService = (function () {
     ProjectsService.prototype.getUsers = function () {
         return this.http.get('./api/users').map(this.extractData);
     };
+    ProjectsService.prototype.getProject = function (id) {
+        return this.http.get('/api/projects/' + id).map(this.extractData);
+    };
     ProjectsService.prototype.getProjects = function () {
         return this.http.get('./api/projects').map(this.extractData);
     };
     ProjectsService.prototype.createProject = function (attrs) {
         return this.http.post('./api/projects', attrs).map(this.extractData);
+    };
+    ProjectsService.prototype.getConversation = function (id) {
+        return this.http.get('/api/conversations/' + id).map(this.extractData);
+    };
+    ProjectsService.prototype.createConversation = function (id, name) {
+        return this.http.post("/api/projects/" + id + "/conversations", { name: name }).map(this.extractData);
+    };
+    ProjectsService.prototype.createMessage = function (conv_id, message) {
+        return this.http.post('/api/conversations/' + conv_id + '/messages', message).map(this.extractData);
     };
     ProjectsService = __decorate([
         core_1.Injectable(), 
