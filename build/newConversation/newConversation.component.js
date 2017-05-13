@@ -37,6 +37,7 @@ var NewConversationComponent = (function () {
         core_1.Component({
             selector: 'new-conversation',
             templateUrl: 'app/newconversation/newConversation.component.html',
+            styles: ["\n\t\t\tmd-card {\n\t\t\t\tmargin: 10px auto 0 auto;\n\t\t\t\twidth: 550px;\n\t\t\t\tborder-radius: 5px;\n\t\t\t\ttext-align: left;\n\t\t\t}\n    "],
             providers: [projects_service_1.ProjectsService]
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, emitter_service_1.EmitterService, projects_service_1.ProjectsService])

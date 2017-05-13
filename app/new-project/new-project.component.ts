@@ -8,6 +8,43 @@ import { ProjectsService } from '../projects.service';
 @Component({
   selector: 'new-project',
   templateUrl: 'app/new-project/new-project.component.html',
+  styles: [`
+    md-card {
+      margin: 10px auto 0 auto;
+      width: 550px;
+      border-radius: 5px;
+      text-align: left;
+    }
+    span {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: Verdana, sans-serif;
+      color: tomato;
+      font-size: 18px;
+    }
+    ul {
+      list-style-type: none;
+    }
+    input {
+      width: 100%;
+    }
+    textarea {
+      width: 100%;
+      height: 70px;
+    }
+    *::-webkit-input-placeholder {
+      color: tomato;
+    }
+    *:-moz-placeholder {
+      color: tomato;
+    }
+    *::-moz-placeholder {
+      color: tomato;
+    }
+    *:-ms-input-placeholder {
+      color: tomato;
+    }
+  `],
   providers: [ ProjectsService ]
 })
 export class NewProjectComponent implements OnInit {

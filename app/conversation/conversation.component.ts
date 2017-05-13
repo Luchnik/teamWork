@@ -10,6 +10,26 @@ import { Project } from '../project';
 @Component({
     selector: 'conversation',
     templateUrl: 'app/conversation/conversation.component.html',
+    styles: [`
+			md-card {
+				margin: 10px auto 0 auto;
+				width: 550px;
+				border-radius: 5px;
+				text-align: left;
+			}
+			*::-webkit-input-placeholder {
+				color: tomato;
+			}
+			*:-moz-placeholder {
+				color: tomato;
+			}
+			*::-moz-placeholder {
+				color: tomato;
+			}
+			*:-ms-input-placeholder {
+				color: tomato;
+			}
+    `],
     providers: [ ProjectsService ]
 })
 export class ConversationComponent implements OnInit, OnDestroy {

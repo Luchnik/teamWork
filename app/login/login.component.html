@@ -1,8 +1,8 @@
 <form #f='ngForm' (submit)='login(f.value)'>
-  <h2> Увійти в систему </h2>
+  <span class="md-tool logo"> Увійти в систему </span>
 
   <p> <input type='text' name='username' placeholder="Ім'я користувача" ngModel> </p>
   <p> <input type='password' name='password' placeholder="Пароль" ngModel> </p>
 
-  <button color='primary' type='submit'> Увійти </button>
+  <button md-raised-button color='primary' type='submit'> Увійти </button>
 </form>

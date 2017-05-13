@@ -28,7 +28,8 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'login',
-            templateUrl: 'app/login/login.component.html'
+            templateUrl: 'app/login/login.component.html',
+            styles: ["\n    span {\n      display: inline-block;\n      margin-top: 10px;\n      font-family: Verdana, sans-serif;\n      color: tomato;\n      font-size: 18px;\n    }\n    *::-webkit-input-placeholder {\n      color: tomato;\n    }\n    *:-moz-placeholder {\n      color: tomato;\n    }\n    *::-moz-placeholder {\n      color: tomato;\n    }\n    *:-ms-input-placeholder {\n      color: tomato;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], LoginComponent);

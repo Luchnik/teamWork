@@ -73,6 +73,7 @@ var NewProjectComponent = (function () {
         core_1.Component({
             selector: 'new-project',
             templateUrl: 'app/new-project/new-project.component.html',
+            styles: ["\n    md-card {\n      margin: 10px auto 0 auto;\n      width: 550px;\n      border-radius: 5px;\n      text-align: left;\n    }\n    span {\n      display: inline-block;\n      margin-top: 10px;\n      font-family: Verdana, sans-serif;\n      color: tomato;\n      font-size: 18px;\n    }\n    ul {\n      list-style-type: none;\n    }\n    input {\n      width: 100%;\n    }\n    textarea {\n      width: 100%;\n      height: 70px;\n    }\n    *::-webkit-input-placeholder {\n      color: tomato;\n    }\n    *:-moz-placeholder {\n      color: tomato;\n    }\n    *::-moz-placeholder {\n      color: tomato;\n    }\n    *:-ms-input-placeholder {\n      color: tomato;\n    }\n  "],
             providers: [projects_service_1.ProjectsService]
         }), 
         __metadata('design:paramtypes', [forms_1.FormBuilder, auth_service_1.AuthService, projects_service_1.ProjectsService, router_1.Router])

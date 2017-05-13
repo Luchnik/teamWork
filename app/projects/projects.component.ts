@@ -6,6 +6,12 @@ import { ProjectsService } from '../projects.service';
 @Component({
   selector: 'projects',
   templateUrl: 'app/projects/projects.component.html',
+  styles: [`
+    div {
+      margin-top: 20px;
+      text-align: center;
+    }
+  `],
   providers: [ ProjectsService ]
 })
 export class ProjectsComponent implements OnInit {
@@ -19,9 +25,5 @@ export class ProjectsComponent implements OnInit {
     this.service.getProjects().subscribe(projects =>
       this.projects = projects
     );
-    // [
-    //   { id: '1', name: 'First project', description: 'some desc', conversations: [], users: [] },
-    //   { id: '2', name: 'Second project', description: 'some desc', conversations: [], users: [] }
-    // ];
   }
 }

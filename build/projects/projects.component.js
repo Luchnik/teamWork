@@ -19,15 +19,12 @@ var ProjectsComponent = (function () {
         this.service.getProjects().subscribe(function (projects) {
             return _this.projects = projects;
         });
-        // [
-        //   { id: '1', name: 'First project', description: 'some desc', conversations: [], users: [] },
-        //   { id: '2', name: 'Second project', description: 'some desc', conversations: [], users: [] }
-        // ];
     };
     ProjectsComponent = __decorate([
         core_1.Component({
             selector: 'projects',
             templateUrl: 'app/projects/projects.component.html',
+            styles: ["\n    div {\n      margin-top: 20px;\n      text-align: center;\n    }\n  "],
             providers: [projects_service_1.ProjectsService]
         }), 
         __metadata('design:paramtypes', [projects_service_1.ProjectsService])

@@ -1,5 +1,5 @@
-<div>
-  <h2>Створити новий проект</h2>
+<md-card>
+  <span class="md-tool logo">Створити новий проект</span>
 
   <form [formGroup]='form' (ngSubmit)='handler()'>
     <p><input type="text" placeholder="Назва проекту" [formControl]='form.controls["name"]'></p>
@@ -23,7 +23,7 @@
       </ul>
     </div>
 
-    <button type="submit">Зберегти</button>
+    <button md-raised-button color='primary'>Зберегти</button>
 
     <p *ngIf='(submitted || name.dirty) && name.hasError("required")'>
       Введіть назву проекту!
@@ -33,4 +33,4 @@
       Назва має бути довша ніж 2 символи!
     </p>
   </form>
-</div>
+</md-card>

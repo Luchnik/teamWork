@@ -4,7 +4,28 @@ import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'login',
-  templateUrl: 'app/login/login.component.html'
+  templateUrl: 'app/login/login.component.html',
+  styles: [`
+    span {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: Verdana, sans-serif;
+      color: tomato;
+      font-size: 18px;
+    }
+    *::-webkit-input-placeholder {
+      color: tomato;
+    }
+    *:-moz-placeholder {
+      color: tomato;
+    }
+    *::-moz-placeholder {
+      color: tomato;
+    }
+    *:-ms-input-placeholder {
+      color: tomato;
+    }
+  `]
 })
 export class LoginComponent {
   constructor(

@@ -1,9 +1,11 @@
-<h2>Ласкаво просимо!</h2>
+<span class="md-tool logo">Ласкаво просимо в TeamWork!</span>
 
 <p *ngIf="loggedIn">
-  <a [routerLink]='["/projects"]'> Переглянути мої проекти </a>
+  <button md-raised-button color='primary' [routerLink]='["/projects"]'> Переглянути мої проекти </button>
 </p>
 
 <p *ngIf="!loggedIn">
-  <a [routerLink]='["/login"]'> Логін </a>
+  <button md-raised-button color='primary' [routerLink]='["/login"]'> Логін </button>
 </p>
+
+<img src="https://cloud.githubusercontent.com/assets/4959368/26027384/c7d9085c-3815-11e7-942d-7cdbea474d19.jpg" alt="jumbo" class="jumbo">

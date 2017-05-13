@@ -1,18 +1,15 @@
 <md-toolbar color="warn">
-  <span class="md-tool logo">TeamWork</span>
-  <span class="projects">
+  <span class="md-tool">TeamWork</span>
+  <span>
     <a routerLink="/home">Головна</a>
     <a *ngIf='user' routerLink="/projects">Всі проекти</a>
   </span>
 
-  <div class="username">
-    <a href='#' (click)='logout()'>Вийти</a>
-    <span *ngIf='user'>
-      {{ user.username }}
-    </span>
-  </div>
   <img *ngIf='user' [src]="user.avatar" height="40">
-
+  <span *ngIf='user'>
+    {{ user.username }}
+    <a href='#' (click)='logout()'> Вийти </a>
+  </span>
 </md-toolbar>
 
 <div class="container">

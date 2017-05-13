@@ -1,5 +1,5 @@
 <div>
-  <a [routerLink]="['/projects/new']">Створити новий проект</a>
+  <button md-raised-button color='primary' [routerLink]="['/projects/new']">Створити новий проект</button>
 </div>
 
 <summary [project]="project" *ngFor="let project of projects"></summary>

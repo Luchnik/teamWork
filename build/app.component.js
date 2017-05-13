@@ -28,7 +28,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/app.component.html'
+            templateUrl: 'app/app.component.html',
+            styles: ["\n    div.container {\n      text-align: center;\n    }\n    .logo {\n      font-family: Verdana, sans-serif;\n      font-size: 24px;\n      margin-right: 30px;\n    }\n    span.projects a {\n      margin-left: 10px;\n      text-decoration: none;\n      color: #fff;\n      border: 1px solid #fff;\n      border-radius: 5px;\n      font-family: Verdana, sans-serif;\n      font-size: 14px;\n      padding: 7px;\n    }\n    span.projects a:hover {\n      background-color: #fff;\n      text-decoration: none;\n      color: #000;\n    }\n    div.username {\n      margin-left: auto;\n      margin-right: 0;\n    }\n    div.username span {\n      font-family: Verdana, sans-serif;\n      font-size: 14px;\n      color: #fff;\n      margin-left: 10px;\n      margin-right: 10px;\n    }\n    div.username a {\n      margin-left: 10px;\n      text-decoration: none;\n      color: #fff;\n      border: 1px solid #fff;\n      border-radius: 5px;\n      font-family: Verdana, sans-serif;\n      font-size: 14px;\n      padding: 7px;\n    }\n    div.username a:hover {\n      background-color: #fff;\n      text-decoration: none;\n      color: #000;\n    }\n    img {\n      border-radius: 50%;\n      margin-right: 15px;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], AppComponent);

@@ -7,6 +7,14 @@ import { EmitterService } from '../emitter.service';
 @Component({
     selector: 'new-conversation',
     templateUrl: 'app/newconversation/newConversation.component.html',
+    styles: [`
+			md-card {
+				margin: 10px auto 0 auto;
+				width: 550px;
+				border-radius: 5px;
+				text-align: left;
+			}
+    `],
     providers: [ ProjectsService ]
 })
 export class NewConversationComponent {

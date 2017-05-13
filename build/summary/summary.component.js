@@ -31,6 +31,7 @@ var SummaryComponent = (function () {
         core_1.Component({
             selector: 'summary',
             templateUrl: 'app/summary/summary.component.html',
+            styles: ["\n    md-card {\n      margin: 10px auto 0 auto;\n      width: 550px;\n      border-radius: 5px;\n      text-align: left;\n    }\n    md-card:last-child {\n      margin: 10px auto 30px auto;\n    }\n    img {\n      border-radius: 50%;\n      margin-right: 5px;\n    }\n    a {\n      color: tomato;\n    }\n  "],
             providers: [projects_service_1.ProjectsService]
         }), 
         __metadata('design:paramtypes', [projects_service_1.ProjectsService])

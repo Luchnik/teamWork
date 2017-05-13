@@ -62,6 +62,7 @@ var ConversationComponent = (function () {
         core_1.Component({
             selector: 'conversation',
             templateUrl: 'app/conversation/conversation.component.html',
+            styles: ["\n\t\t\tmd-card {\n\t\t\t\tmargin: 10px auto 0 auto;\n\t\t\t\twidth: 550px;\n\t\t\t\tborder-radius: 5px;\n\t\t\t\ttext-align: left;\n\t\t\t}\n\t\t\t*::-webkit-input-placeholder {\n\t\t\t\tcolor: tomato;\n\t\t\t}\n\t\t\t*:-moz-placeholder {\n\t\t\t\tcolor: tomato;\n\t\t\t}\n\t\t\t*::-moz-placeholder {\n\t\t\t\tcolor: tomato;\n\t\t\t}\n\t\t\t*:-ms-input-placeholder {\n\t\t\t\tcolor: tomato;\n\t\t\t}\n    "],
             providers: [projects_service_1.ProjectsService]
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService, projects_service_1.ProjectsService, router_1.Router, router_1.ActivatedRoute])

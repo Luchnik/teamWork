@@ -18,6 +18,24 @@ export const projectChildRoutes = [
 @Component({
     selector: 'project',
     templateUrl: 'app/project/project.component.html',
+    styles: [`
+			md-card {
+				margin: 10px auto 0 auto;
+				width: 550px;
+				border-radius: 5px;
+				text-align: left;
+			}
+			md-toolbar {
+				background-color: #fff;
+			}
+			a {
+				color: tomato;
+				margin-right: 5px;
+			}
+			a:hover {
+				text-decoration: none;
+			}
+    `],
     providers: [ProjectsService ]
 })
 export class ProjectComponent implements OnInit, OnDestroy {

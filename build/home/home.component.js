@@ -24,7 +24,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
-            templateUrl: 'app/home/home.component.html'
+            templateUrl: 'app/home/home.component.html',
+            styles: ["\n    .jumbo {\n      min-width: 100%;\n    }\n    span {\n      display: inline-block;\n      margin-top: 10px;\n      font-family: Verdana, sans-serif;\n      color: tomato;\n      font-size: 18px;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], HomeComponent);
